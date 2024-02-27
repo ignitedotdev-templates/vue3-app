@@ -1,47 +1,75 @@
 <script setup lang="ts">
-import HelloWorld from './components/HelloWorld.vue'
-import TheWelcome from './components/TheWelcome.vue'
+import { ref, onMounted } from 'vue'
+
+const currentPath = ref('')
+
+onMounted(() => {
+  currentPath.value = window.location.href
+})
 </script>
 
 <template>
-  <header>
-    <img alt="Vue logo" class="logo" src="./assets/logo.svg" width="125" height="125" />
-
-    <div class="wrapper">
-      <HelloWorld msg="You did it!" />
-    </div>
-  </header>
-
   <main>
-    <TheWelcome />
+    <div class="">
+      <img alt="Vue logo" class="logo" src="./assets/logo.svg" width="125" height="125" />
+    </div>
+    <div class="container">
+      <div className="inner-container">
+        <h2 class="header">
+          You’ve just ignited a new
+          <span class="library">Vue 3</span> static site!
+        </h2>
+        <span class="pathname">
+          {{ currentPath }}
+        </span>
+      </div>
+      <p class="footer">Made in Nigeria with 💖</p>
+    </div>
   </main>
 </template>
 
 <style scoped>
-header {
-  line-height: 1.5;
+main {
+  height: 100vh;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 7px;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid #eaeaea;
 }
-
 .logo {
-  display: block;
-  margin: 0 auto 2rem;
+  width: 200px;
+  height: 200px;
 }
-
-@media (min-width: 1024px) {
-  header {
-    display: flex;
-    place-items: center;
-    padding-right: calc(var(--section-gap) / 2);
-  }
-
-  .logo {
-    margin: 0 2rem 0 0;
-  }
-
-  header .wrapper {
-    display: flex;
-    place-items: flex-start;
-    flex-wrap: wrap;
-  }
+.container {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  gap: 25px;
+}
+.inner-container {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.header {
+  font-size: 36px;
+  font-weight: 400;
+  color: #344054;
+}
+.pathname {
+  color: #004eeb;
+  font-size: 20px;
+}
+.footer {
+  font-size: 20px;
+  font-weight: 500;
+  color: #344054;
+}
+.library {
+  color: #00dc82;
+  font-weight: 600;
 }
 </style>
