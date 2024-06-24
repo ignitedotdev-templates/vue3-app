@@ -1,3 +1,17 @@
+
+# Deploy Config
+```bash
+# root directory
+leave empty
+
+# build command
+npm install && npm run generate
+
+# publish directory
+dist
+```
+
+
 # vue3-app
 
 This template should help get you started developing with Vue 3 in Vite.
