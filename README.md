@@ -5,7 +5,7 @@
 leave empty
 
 # build command
-npm install && npm run generate
+npm install && npm run build
 
 # publish directory
 dist
